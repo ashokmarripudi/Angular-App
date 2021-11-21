@@ -1,0 +1,51 @@
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div class="container col-4 mt-4" style="border:1px solid whitesmoke;">
+    <h3>Login Form</h3>
+  <div class="form-group">
+    <label for="Name">Username</label>
+    <input type="text" class="form-control" formControlName ="name" placeholder="username">
+  </div>
+      <span *ngIf = "myForm.get('name').touched && myForm.get('name').hasError('required')">Name is mandatory</span>
+      <span *ngIf = "myForm.get('name').touched && myForm.get('name').hasError('minlength')">minimum length five characters</span>
+      <span *ngIf = "myForm.get('name').touched && myForm.get('name').hasError('maxlength')">maxlength 10 characters</span>
+  <div class="form-group">
+    <label for="Password">Password</label>
+    <input type="text" class="form-control" formControlName="pwd" placeholder="Password">
+  </div>
+      <span *ngIf = "myForm.get('pwd').touched && myForm.get('pwd').hasError('required')">password is mandatory</span>
+      <span *ngIf = "myForm.get('pwd').touched && myForm.get('pwd').hasError('minlength')">minimum length 8 characters</span>
+      <span *ngIf = "myForm.get('pwd').touched && myForm.get('pwd').hasError('maxlength')">maxlength 12 characters</span>
+      <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Email">&nbsp;&nbsp;&nbsp;
+      </div>
+      <button type="submit" class="btn btn-primary form-control">Sign in</button>
+    <!-- <div class="container col-4">
+        <div class="form-group">
+      <label for="uname"><b>Username:</b></label>
+      <input type="text" placeholder="Enter Username" formControlName ="name">
+      </div>
+      <span *ngIf = "myForm.get('name').touched && myForm.get('name').hasError('required')">Name is mandatory</span>
+      <span *ngIf = "myForm.get('name').touched && myForm.get('name').hasError('minlength')">minimum length five characters</span>
+      <span *ngIf = "myForm.get('name').touched && myForm.get('name').hasError('maxlength')">maxlength 10 characters</span>
+      <div class="form-group">
+      <label for="psw"><b>Password:</b></label>
+      <input type="password" placeholder="Enter Password" formControlName="pwd">
+      </div>
+      <span *ngIf = "myForm.get('pwd').touched && myForm.get('pwd').hasError('required')">password is mandatory</span>
+      <span *ngIf = "myForm.get('pwd').touched && myForm.get('pwd').hasError('minlength')">minimum length 8 characters</span>
+      <span *ngIf = "myForm.get('pwd').touched && myForm.get('pwd').hasError('maxlength')">maxlength 12 characters</span>
+      <div class="form-group">
+      <label for="Email"><b>Email:</b></label>
+      <input type="email" placeholder="Enter Password" formControlName ="email"><br><br>
+      </div>
+      <span *ngIf = "myForm.get('email').touched && myForm.get('email').hasError('required')">Name is mandatory</span>
+      <span *ngIf = "myForm.get('email').touched && myForm.get('email').hasError('email')">Emter valid email id</span>
+      
+      
+      <button class = "form-group" type="submit" [disabled]=!myForm.valid>Login</button> -->
+      <!-- <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label> -->
+    </div>
+    </form>
